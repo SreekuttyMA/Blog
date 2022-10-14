@@ -1,0 +1,29 @@
+{% extends 'temp_sub/base.html' %}
+{% block title %}Login Page{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container cover pt-5" >
+    <div class="row mt-5 pt-3">
+        <div class="col-md-5 offset-md-4">
+            <div class="card my-3 ">
+                <div class="card-body">
+                    <h4>Login Page</h4>
+                    <hr>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn btn-primary btn-block" type="submit" value="Login">
+                    </form>
+                    <div class="text-center">
+                        <a href="">Forget Password</a>
+                    </div>
+                    <hr>
+                    <div class="text-center my-3">
+                    <a class="btn btn-success" href="{% url 'users-sign-up' %}">Create An Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
